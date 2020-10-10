@@ -1,5 +1,3 @@
-id,date_creation,nom
-42,2020-02-27,Brouette
-43,2020-02-25,Tracteur
-44,2020-02-25,Pelle
-45,2020-02-25,Bus
+prenom,nom,categorie,date_naissance,date_deces,cause_mort,lieu_sepulture,date_debut_activite,date_fin_activite,titre_activite,complement,url
+,Charlemagne,Politique,0742-04-02,0814-01-24,pneumonie aigüe,Aix-la-Chapelle,0769-10-09,0814-01-28,Roi des Francs,,https://fr.wikipedia.org/wiki/Charlemagne
+André,Malraux,Arts,1901-11-03,1976-11-23,,,1959-07-22,1960-06-20,Ministre des Affaires culturelles,,https://fr.wikipedia.org/wiki/Andr%C3%A9_Malraux

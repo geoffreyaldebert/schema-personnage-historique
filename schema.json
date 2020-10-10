@@ -1,82 +1,156 @@
 {
    "$schema":"https://specs.frictionlessdata.io/schemas/table-schema.json",
-   "name":"objets-importants",
-   "title":"Schéma des objets importants",
-   "description":"Spécification du fichier d'échange relatif aux objets importants gérés par les collectivités.",
+   "name":"personnage-historique",
+   "title":"Schéma des personnages historiques",
+   "description":"Spécification du fichier d'échange relatif aux personnages historiques",
    "keywords":[
-      "objets",
-      "autre-tag"
+      "personnage",
+      "historique",
+      "histoire"
    ],
    "countryCode":"FR",
-   "homepage":"https://github.com/mon-orga/schema-objets-importants",
-   "path":"https://github.com/mon-orga/schema-objets-importants/raw/v0.1.1/schema.json",
-   "image":"https://github.com/mon-orga/schema-objets-importants/raw/v0.1.1/irve.png",
-   "licenses":[
-      {
-         "title":"Etalab Licence Ouverte 2.0",
-         "name":"etalab-2.0",
-         "path":"https://spdx.org/licenses/etalab-2.0.html"
-      }
-   ],
+   "homepage":"https://github.com/geoffreyaldebert/schema-personnage-historique",
+   "path":"https://github.com/geoffreyaldebert/schema-personnage-historique/raw/v0.1.1/schema.json",
    "resources":[
       {
          "title":"Fichier valide (CSV)",
          "name":"exemple-valide-csv",
-         "path":"https://github.com/mon-orga/schema-objets-importants/raw/v0.1.1/exemple-valide.csv"
+         "path":"https://github.com/geoffreyaldebert/raw/v0.1.1/exemple-valide.csv"
       }
    ],
-   "sources":[
-      {
-         "title":"Arrêté du 12 janvier 2017 relatif aux objets importants",
-         "path":"https://beta.legifrance.gouv.fr/codes/id/LEGISCTA000031367685/2020-05-25"
-      }
-   ],
-   "created":"2018-06-29",
-   "lastModified":"2019-05-06",
+   "created":"2020-10-10",
+   "lastModified":"2020-10-10",
    "version":"0.1.1",
    "contributors":[
       {
-         "title":"John Smith",
-         "email":"john.smith@etalab.gouv.fr",
-         "organisation":"Etalab",
+         "title":"Geoffrey Aldebert",
+         "email":"geoffrey.aldebert@gmail.com",
+         "organisation":"Geoffrey Aldebert",
          "role":"author"
-      },
-      {
-         "title":"Jane Doe",
-         "email":"jane.doe@example.com",
-         "organisation":"Association très importante",
-         "role":"contributor"
       }
    ],
    "fields":[
       {
-         "name":"id",
-         "description":"Un identifiant unique de l'objet.",
-         "example":"42",
-         "type":"integer",
+         "name":"prenom",
+         "description":"Prénom du personnage",
+         "example":"François, Marie, Victor",
+         "type":"string",
          "constraints":{
-            "required":true,
-            "minimum":1
-         }
-      },
-      {
-         "name":"date_creation",
-         "description":"La date de création de l'objet, au format ISO 8601 AAAA-MM-DD.",
-         "example":"2020-02-27",
-         "type":"date",
-         "constraints":{
-            "required":true
+            "required":false
          }
       },
       {
          "name":"nom",
-         "description":"Le nom de l'objet.",
-         "example":"Brouette",
+         "description":"Nom du personnage",
+         "example":"Charlemagne, Dupont, Malraux",
          "type":"string",
          "constraints":{
             "required":true
          }
+      },
+      {
+         "name":"categorie",
+         "description":"Catégorie du personnage",
+         "example":"Sciences",
+         "type":"string",
+         "constraints":{
+             "required":true,
+             "enum":[
+                 "Politique",
+                 "Religion",
+                 "Sciences",
+                 "Arts",
+                 "Société",
+                 "Commerce"
+             ]
+         }
+     },
+     {
+         "name":"date_naissance",
+         "description":"Date de naissance du personnage. Notation ISO 8601, format AAAA-MM-DD",
+         "example":"1845-10-31",
+         "type":"date",
+         "format":"%Y-%m-%d",
+         "constraints":{
+            "required":false
+         }
+      },
+      {
+          "name":"date_deces",
+          "description":"Date de décès du personnage. Notation ISO 8601, format AAAA-MM-DD",
+          "example":"1915-04-23",
+          "type":"date",
+          "format":"%Y-%m-%d",
+          "constraints":{
+             "required":false
+          }
+       },
+       {
+          "name":"cause_mort",
+          "description":"Causes de la mort du personnage",
+          "example":"Accident, Mort naturelle",
+          "type":"string",
+          "constraints":{
+             "required":false
+          }
+       },
+       {
+          "name":"lieu_sepulture",
+          "description":"Lieu où repose le personnage",
+          "example":"Basilique Saint-Denis, Cimetière du Montparnasse, Nevers",
+          "type":"string",
+          "constraints":{
+             "required":false
+          }
+       },
+      {
+         "name":"date_debut_activite",
+         "description":"Date de début de l'activité principale du personnage. Notation ISO 8601, format AAAA-MM-DD",
+         "example":"1845-10-31",
+         "type":"date",
+         "format":"%Y-%m-%d",
+         "constraints":{
+            "required":false
+         }
+      },
+      {
+         "name":"date_fin_activite",
+         "description":"Date de décès du personnage. Notation ISO 8601, format AAAA-MM-DD",
+         "example":"1915-04-23",
+         "type":"date",
+         "format":"%Y-%m-%d",
+         "constraints":{
+            "required":false
+         }
+      },
+      {
+         "name":"titre_activite",
+         "description":"Titre de l'activité principale du personnage",
+         "example":"Roi, Député, Marchand de vin",
+         "type":"string",
+         "constraints":{
+            "required":false
+         }
+      },
+      {
+         "name":"complement",
+         "description":"Complément libre sur le personnage",
+         "example":"Texte long",
+         "type":"string",
+         "constraints":{
+            "required":false
+         }
+      },
+      {
+          "name": "url",
+          "description": "Url source sur le personnage",
+          "example": "http://monpersonnage.com",
+          "type": "string",
+          "format": "uri",
+          "constraints": {
+              "required": false
+          }
       }
-   ],
-   "primaryKey":"id"
+   ]
 }
+
