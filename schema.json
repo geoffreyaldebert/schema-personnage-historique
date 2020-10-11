@@ -55,15 +55,19 @@
          "type":"string",
          "constraints":{
              "required":true,
-             "enum":[
-                 "Politique",
-                 "Religion",
-                 "Sciences",
-                 "Arts",
-                 "Société",
-                 "Commerce"
-             ]
-         }
+             "pattern":"(?:(?:^|,)(Politique|Religion|Sciences|Arts|Société|Commerce|Environnement|Urbanisme))+$"
+         },
+         "multiEnum": true,
+         "multiEnumList":[
+            "Politique",
+            "Religion",
+            "Sciences",
+            "Arts",
+            "Société",
+            "Commerce",
+            "Environnement",
+            "Urbanisme"
+        ]
      },
      {
          "name":"date_naissance",
@@ -102,7 +106,7 @@
           "constraints":{
              "required":false
           }
-       },
+      },
       {
          "name":"date_debut_activite",
          "description":"Date de début de l'activité principale du personnage. Notation ISO 8601, format AAAA-MM-DD",
